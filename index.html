@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>LHAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #F06F0E;
+      --amber:  #FFB342;
+      --forest: #0A372F;
+      --teal:   #077771;
+      --bg:     #FFF6E6;
+      --font: "Archivo Black", "Arial Black", Impact, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--forest);
+      font-family: var(--font);
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 20px 80px;
+    }
+
+    /* Teks biasa (bukan tombol) */
+    h1 { margin: 0; font-weight: 400; line-height: 1; }
+    h1 span { display: block; }
+    .l1 { font-size: clamp(72px, 22vw, 160px); letter-spacing: -.01em; }
+    .l2 { font-size: clamp(28px, 9vw, 72px); margin-top: 6px; }
+    .l3 { font-size: clamp(28px, 9vw, 72px); }
+    .l4 { font-size: clamp(22px, 6.5vw, 44px); margin-top: 6px; color: var(--teal); }
+
+    /* Satu-satunya tombol: tulisan DISINI */
+    .tombol {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: var(--forest);
+      font-size: clamp(22px, 6vw, 36px);
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color .15s ease, transform .12s ease;
+    }
+    .tombol:hover  { background: var(--amber); transform: translateY(-2px); }
+    .tombol:active { transform: translateY(1px); }
+    .tombol:focus-visible, .addon:focus-visible { outline: 4px solid var(--forest); outline-offset: 4px; }
+    .tombol svg { width: 1em; height: 1em; flex: none; fill: var(--forest); stroke: var(--forest); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+
+    /* Link install add-on */
+    .addon {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 44px;
+      padding: 10px 4px;
+      color: var(--teal);
+      font-size: clamp(16px, 4vw, 22px);
+      line-height: 1;
+      text-decoration: none;
+      border-bottom: 3px solid var(--teal);
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .addon:hover { color: var(--orange); border-color: var(--orange); }
+    .addon svg { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+    footer {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 18px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--forest);
+      opacity: .75;
+      letter-spacing: .02em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tombol, .addon { transition: none; }
+      .tombol:hover, .tombol:active { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <span class="l1">Buat</span>
+    <span class="l2">Laporan Hasil</span>
+    <span class="l3">Audit Toko</span>
+    <span class="l4">(LHAT)</span>
+  </h1>
+
+  <a class="tombol" id="btnBuat" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l7.5 18 2.6-7.9L22 10.5 4 3z"/></svg>
+    <span>&rarr; Disini &larr;</span>
+  </a>
+
+  <a class="addon" id="btnAddon" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v12"/>
+      <path d="m7 10 5 5 5-5"/>
+      <path d="M4 20h16"/>
+    </svg>
+    <span>Install Add-on</span>
+  </a>
+
+  <footer>Divisi Corporate Audit</footer>
+
+  <script>
+    // ====== PENGATURAN ======
+    const TEMPLATE_ID = '1XwHaciaxYdqI_kptKAxHppt1S_r7IJBwd57V1i-__HU';
+    const ADDON_URL   = 'https://workspace.google.com/marketplace/app/audit_slides_template/574284180451?flow_type=72';
+    // ========================
+
+    document.getElementById('btnBuat').href  = 'https://docs.google.com/presentation/d/' + TEMPLATE_ID + '/copy';
+    document.getElementById('btnAddon').href = ADDON_URL;
+  </script>
+</body>
+</html>
